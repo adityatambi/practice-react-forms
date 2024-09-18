@@ -1,9 +1,9 @@
 import './App.css';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import { contactPageAction, ContactPageUncontrolled } from './ContactPageFormUncontrolled';
+import {  contactPageActionUncontrolled, ContactPageUncontrolled } from './ContactPageFormUncontrolled';
 import { ThankYouPage } from './ThankYouPage';
 import { Home } from './Home';
-import { ContactPageControlled } from './ContactPageFormWithState';
+import {  ContactPageControlled } from './ContactPageFormWithState';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -11,12 +11,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/contactFormControlled',
-    element: <ContactPageControlled />
+    element: <ContactPageControlled />,
   },
   {
     path: '/contactFormUncontrolled',
     element: <ContactPageUncontrolled />,
-    action: contactPageAction,
+    action: contactPageActionUncontrolled,
   },
   {
     path: '/thank-you/:name',

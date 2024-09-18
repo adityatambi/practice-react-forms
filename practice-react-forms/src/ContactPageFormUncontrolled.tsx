@@ -49,7 +49,7 @@ export function ContactPageUncontrolled() {
     </div>
   );
 }
-export async function contactPageAction({ request }: ActionFunctionArgs) {
+export async function contactPageActionUncontrolled({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const contact = {
     name: formData.get('name'),
