@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { ActionFunctionArgs, Form, redirect } from 'react-router-dom';
 
 type Contact = {
   name: string;
@@ -9,21 +9,11 @@ type Contact = {
 
 export function ContactPageUncontrolled() {
   const fieldStyle = 'flex flex-col mb-2';
-  function handleSubmit (e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const formData= new FormData(e.currentTarget);
-    const contact = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        reason: formData.get('reason'),
-        notes: formData.get('notes')
-    }as Contact
-  }
   return (
     <div className="flex flex-col py-10 max-w-md mx-auto">
       <h2 className="text-3xl font-bold underline mb-3">Contact Us</h2>
       <p className="mb-3">If you enter your details we'll get back to you as soon as we can.</p>
-      <form onSubmit={handleSubmit}>
+      <Form method="post">
         <div className={fieldStyle}>
           <label htmlFor="name">Your name</label>
           <input
@@ -35,18 +25,11 @@ export function ContactPageUncontrolled() {
         </div>
         <div className={fieldStyle}>
           <label htmlFor="email">Your email address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-          />
+          <input type="email" id="email" name="email" />
         </div>
         <div className={fieldStyle}>
           <label htmlFor="reason">Reason you need to contact us</label>
-          <select
-            id="reason"
-            name="reason"
-          >
+          <select id="reason" name="reason">
             <option value=""></option>
             <option value="Support">Support</option>
             <option value="Feedback">Feedback</option>
@@ -55,17 +38,25 @@ export function ContactPageUncontrolled() {
         </div>
         <div className={fieldStyle}>
           <label htmlFor="notes">Additional notes</label>
-          <textarea
-            id="notes"
-            name="notes"
-          />
+          <textarea id="notes" name="notes" />
         </div>
         <div>
           <button type="submit" className="mt-2 px-6 font-semibold bg-black text-white">
             Submit
           </button>
         </div>
-      </form>
+      </Form>
     </div>
   );
+}
+export async function contactPageAction({ request }: ActionFunctionArgs) {
+  const formData = await request.formData();
+  const contact = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    reason: formData.get('reason'),
+    notes: formData.get('notes'),
+  } as Contact;
+  console.log('Submitted details: ', contact);
+  return redirect(`/thank-you/${formData.get('name')}`);
 }

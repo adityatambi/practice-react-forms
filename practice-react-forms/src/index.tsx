@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ContactPageControlled } from './ContactPageFormWithState';
-import { ContactPageUncontrolled } from './ContactPageFormUncontrolled';
 // import { ContactPageControlled } from './ContactPageFormWithState';
 // import { ContactPageUncontrolled } from './ContactPageFormUncontrolled';
 
@@ -12,7 +10,7 @@ import { ContactPageUncontrolled } from './ContactPageFormUncontrolled';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ContactPageUncontrolled/>
+    <App />
   </React.StrictMode>,
 );
 
