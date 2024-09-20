@@ -4,6 +4,7 @@ import {  contactPageActionUncontrolled, ContactPageUncontrolled } from './Conta
 import { ThankYouPage } from './ThankYouPage';
 import { Home } from './Home';
 import {  ContactPageControlled } from './ContactPageFormWithState';
+import { ContactPageWithReactHookForm } from './ContactPageWithReactHookForm';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     path: '/contactFormUncontrolled',
     element: <ContactPageUncontrolled />,
     action: contactPageActionUncontrolled,
+  },
+  {
+    path: '/contactFormWithReactHookForm',
+    element: <ContactPageWithReactHookForm />
   },
   {
     path: '/thank-you/:name',

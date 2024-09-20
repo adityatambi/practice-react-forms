@@ -8,8 +8,11 @@ export function Home() {
           <Link to={`contactFormUncontrolled`} className="hover:underline block mb-2">
             Contact Form Uncontrolled
           </Link>
-          <Link to={`contactFormControlled`} className="hover:underline block">
+          <Link to={`contactFormControlled`} className="hover:underline block mb-2">
             Contact Form With State
+          </Link>
+          <Link to={'contactFormWithReactHookForm'} className="hover:underline block">
+            Contat Form With React Hook Form
           </Link>
         </h2>
       </div>

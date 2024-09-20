@@ -21,15 +21,22 @@ export function ContactPageUncontrolled() {
             id="name"
             name="name"
             // autoComplete='off'
+            required
           />
         </div>
         <div className={fieldStyle}>
           <label htmlFor="email">Your email address</label>
-          <input type="email" id="email" name="email" />
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}([.][a-zA-Z]{2,})*$" 
+            />
         </div>
         <div className={fieldStyle}>
           <label htmlFor="reason">Reason you need to contact us</label>
-          <select id="reason" name="reason">
+          <select id="reason" name="reason" required>
             <option value=""></option>
             <option value="Support">Support</option>
             <option value="Feedback">Feedback</option>
